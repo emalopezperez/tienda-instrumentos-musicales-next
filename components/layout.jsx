@@ -1,11 +1,19 @@
+import Head from "next/head";
+import Header from "./header";
+import Footer from "./footer";
 
-const Layout = ({children}) => {
+const Layout = ({ children }) => {
   return (
     <>
+      <Head>
+        <title>Instrumentos</title>
+      </Head>
+      <Header/>
+      
       {children}
-      <p>desde children</p>
+      <Footer/>
     </>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

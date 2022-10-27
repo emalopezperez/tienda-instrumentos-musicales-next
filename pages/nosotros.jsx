@@ -10,7 +10,7 @@ const Nosotros = () => {
             Nosotros
           </h2>
 
-          <div className="flex justify-center flex-col sm:flex-row mt-4 p-4">
+          <div className="flex justify-center flex-col sm:flex-row mt-4 gap-2 p-4">
             <Image
               className=""
               src="/img/nosotros.jpg"

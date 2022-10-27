@@ -107,7 +107,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        <nav className="flex flex-row sm:flex-col  justify-center gap-3 mt-8 xl:mt-2 p-2 font-bold text-white ">
+        <nav className="flex flex-row sm:flex-col  justify-center gap-3 mt-8 xl:mt-2 p-2  text-white ">
           <Link href="/">Home</Link>
           <Link href="/tienda">Tienda</Link>
           <Link href="/blog">Blog</Link>

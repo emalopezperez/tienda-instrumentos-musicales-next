@@ -6,7 +6,7 @@ const Blog = ({ data }) => {
   return (
     <Layout>
       <main>
-        <h2 className="flex justify-center mt-12 m-2 text-2xl xl:text-3xl text-orange-700 font-bold">
+        <h2 className="flex justify-center mt-12 m-2 text-2xl xl:text-3xl text-gray-700 font-bold">
           Blog
         </h2>
         <div className={styles.grid}>

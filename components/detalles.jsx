@@ -1,7 +1,30 @@
+import { useState } from "react";
 import Image from "next/image";
 
-const Detalles = ({ element, key }) => {
+const Detalles = ({ element, key, agregarCarrito, carrito, eliminarProducto }) => {
   const { nombre, img, descripcion, precio } = element.attributes;
+
+  const [cantidad, setCantidad] = useState(0);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (cantidad < 1) {
+      console.log("error bajo");
+    } else {
+      const instrumentosSeleccionados = {
+        id: element.id,
+        precio: precio,
+        nombre: nombre,
+        imagen: img.data.attributes.url,
+        cantidad: cantidad,
+      };
+
+      agregarCarrito(instrumentosSeleccionados);
+    }
+  };
+
+  
 
   return (
     <main className="  mt-1 lg:mt-8">
@@ -37,7 +60,7 @@ const Detalles = ({ element, key }) => {
           </div>
 
           <div className="lg:top-0 lg:sticky text-black">
-            <form className="space-y-4 lg:pt-8 border-black">
+            <div className="space-y-4 lg:pt-8 border-black p-4">
               <div>
                 <span className="text-xs text-stone-400">
                   Nuevo | 2 vendidos
@@ -57,7 +80,7 @@ const Detalles = ({ element, key }) => {
                 </p>
               </div>
 
-              <div className=" felx justify-center p-2 bg-gray-100  border-black">
+              <div className=" p-10 bg-gray-100  border-black ">
                 <p className="text-sm">
                   <span className="block text-xs border-zinc-800 text-black">
                     Color: <span className="text-stone-400">Negro</span>
@@ -69,10 +92,37 @@ const Detalles = ({ element, key }) => {
                   </span>
                 </p>
               </div>
-              <div>
-                <p className="text-2xl mb-18">{precio}</p>
+              <div className="flex justify-center p-7">
+                <p className="text-2xl">${precio}</p>
               </div>
-            </form>
+              <form
+                onSubmit={handleSubmit}
+                className="flex justify-center flex-col mt-6 gap-4"
+              >
+                <label className="" htmlFor="cantidad ">
+                  <select
+                    onChange={(e) => setCantidad(Number(e.target.value))}
+                    className="rounded-xl mt-2 bg-gray-100"
+                    id="cantidad"
+                  >
+                    <option value="0">Cantidad</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                  </select>
+                  <div className=" mt-2">
+                    <input
+                      className="cursor-pointer py-1 px-1 bg-red-400 rounded-xl text-white"
+                      type="submit"
+                      value="Agregar al carrito"
+                    />
+                  </div>
+                </label>
+              </form>
+            </div>
           </div>
 
           <div className="lg:col-span-3 text-black">

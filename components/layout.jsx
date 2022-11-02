@@ -9,7 +9,6 @@ const Layout = ({ children }) => {
         <title>Instrumentos</title>
       </Head>
       <Header/>
-      
       {children}
       <Footer/>
     </>

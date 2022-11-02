@@ -1,15 +1,21 @@
 import Detalles from "../../components/detalles";
 import Layout from "../../components/layout";
 
-const Producto = ({ data }) => {
+const Producto = ({ data , carrito, agregarCarrito,eliminarProducto}) => {
   return (
     <Layout>
       <div className="">
         {data.map((element) => (
-          <Detalles  key={element.attributes.id} element={element} />
+          <Detalles
+            key={element.attributes.id}
+            element={element}
+            carrito={carrito}
+            agregarCarrito={agregarCarrito}
+            eliminarProducto={eliminarProducto}
+          />
         ))}
-      </div> 
-      </Layout>
+      </div>
+    </Layout>
   );
 };
 
